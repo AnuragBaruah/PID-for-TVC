@@ -16,6 +16,7 @@ class threeDofPhysics():
 		self.mmoi = mmoi
 		self.input_last = None
 		self.actuator_state = []
+	
 	def inputForces(self,input_force_vector,dt,internal_gravity = True,negative_x_pos = False):
 		G = -9.18 if internal_gravity else 0
 		self.state_vector["ax"] = (input_force_vector[0] / self.mass) + G
@@ -30,6 +31,7 @@ class threeDofPhysics():
 		self.state_vector["pz"] += self.state_vector["vz"] * dt
 		self.state_vector["theta"] += self.state_vector["omega"] * dt
 		return self.state_vector
+	
 	#maybe eventually replace this with an "Actuator" class or something that can command stuff
 	def tvcPhysics(self,input_angle,thrust,vehicle,dt,print_warnings = False): #angle in rads
 		if input_angle > vehicle.servo_lim:
