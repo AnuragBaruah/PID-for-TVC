@@ -60,9 +60,6 @@ if __name__ == "__main__":
 		vert_pos_ret.append(rocket_phys.state_vector["px"])
 		graphs = [(time_ret,angles_ret),(time_ret,hori_pos_ret),(time_ret,vert_pos_ret)]
 
-		#Real-time plotting is slow right now -> need to look into blit for matplotlib
-		# graphics.updateGraphs(graphs)
-
 		# Compute Control Logic
 		tvc_input = controller.compute(rocket_phys.state_vector['theta'],delta_t)
 
